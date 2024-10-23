@@ -1,22 +1,22 @@
 <script>
-import Header from './components/layouts/Header.vue';
-import Footer from './components/layouts/Footer.vue';
-import { store } from './store';
+  import Header from './components/layouts/Header.vue';
+  import Footer from './components/layouts/Footer.vue';
+  import { store } from './store';
 
-export default {
+  export default {
 
-  components:{
-    Header,
-    Footer
-  },
+    components:{
+      Header,
+      Footer
+    },
 
-  data() {
-    return {
-      store,
-    }
-  },
+    data() {
+      return {
+        store,
+      }
+    },
 
-}
+  }
 </script>
 
 <template>

@@ -1,9 +1,9 @@
 <script>
-export default {
-    props: {
-        menu: Array
+    export default {
+        props: {
+            menu: Array
+        }
     }
-}
 </script>
 
 <template>
@@ -39,54 +39,54 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.custom-header {
-    background-color: rgb(139, 128, 106) !important;
-}
+    .custom-header {
+        background-color: rgb(139, 128, 106) !important;
+    }
 
-.logo-text, .logo-highlight {
-    font-size: 1.5rem; 
-    font-weight: bold;
-}
+    .logo-text, .logo-highlight {
+        font-size: 1.5rem; 
+        font-weight: bold;
+    }
 
-.logo-text {
-    color: #ffffff; 
-}
+    .logo-text {
+        color: #ffffff; 
+    }
 
-.logo-highlight {
-    color: #ff0000; 
-}
+    .logo-highlight {
+        color: #ff0000; 
+    }
 
-.navbar-nav .nav-link {
-    color: #f8f9fa; 
-    transition: color 0.3s;
-    margin-right: 20px; 
-    font-family: 'Roboto', sans-serif; 
-}
+    .navbar-nav .nav-link {
+        color: #f8f9fa; 
+        transition: color 0.3s;
+        margin-right: 20px; 
+        font-family: 'Roboto', sans-serif; 
+    }
 
-.navbar-nav .nav-link:hover {
-    color: #ffc107; 
-}
+    .navbar-nav .nav-link:hover {
+        color: #ffc107; 
+    }
 
-/* Style for the account and cart buttons */
-.btn-outline-light {
-    color: #f8f9fa; 
-    border: 1px solid #f8f9fa;
-    transition: all 0.3s;
-    font-family: 'Roboto', sans-serif;
-}
+    /* Style for the account and cart buttons */
+    .btn-outline-light {
+        color: #f8f9fa; 
+        border: 1px solid #f8f9fa;
+        transition: all 0.3s;
+        font-family: 'Roboto', sans-serif;
+    }
 
-.btn-outline-light:hover {
-    background-color: #ffc107;
-    border-color: #ffc107;
-    color: #000;
-}
+    .btn-outline-light:hover {
+        background-color: #ffc107;
+        border-color: #ffc107;
+        color: #000;
+    }
 
-.d-flex {
-    margin-left: auto; /* Ensures buttons stay to the right */
-}
+    .d-flex {
+        margin-left: auto; /* Ensures buttons stay to the right */
+    }
 
-/* Icon size adjustment */
-.fas {
-    margin-right: 5px;
-}
+    /* Icon size adjustment */
+    .fas {
+        margin-right: 5px;
+    }
 </style>

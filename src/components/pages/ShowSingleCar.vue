@@ -251,7 +251,7 @@ export default {
                         </div>
 
                     </div>
-                    <div class="ps-5 d-flex justify-content-center mt-5 ">
+                    <div class="d-flex justify-content-center mt-5 ">
                         <div class="mb-3 me-3">
                             <button class="btn btn-yellow">Compra Ora</button>
                         </div>

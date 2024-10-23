@@ -1,42 +1,39 @@
 <script>
-export default {
-  props: {
-    brands: {
-      type: Array,
-      required: true,
+  export default {
+    props: {
+      brands: {
+        type: Array,
+        required: true,
+      },
+      onFilter: {
+        type: Function,
+        required: true,
+      },
     },
-    onFilter: {
-      type: Function,
-      required: true,
-    },
-  },
-  data() {
-    return {
-      searchQuery: '',
-      selectedBrand: '',
-      selectedYear: '',
-      selectedPrice: '',
-      selectedKm: '',
-      selectedEngine: '',
-      selectedHorsepower: '',
-      years: Array.from({length: 31}, (_, i) => new Date().getFullYear() - i),
-    };
-  },
-  methods: {
-    applyFilters() {
-      const filters = {
-        search: this.searchQuery,
-        brand: this.selectedBrand,
-        year: this.selectedYear,
-        price: this.selectedPrice,
-        km: this.selectedKm,
-        engine: this.selectedEngine,
-        horsepower: this.selectedHorsepower,
+    data() {
+      return {
+        searchQuery: '',
+        selectedCondition: '',
+        selectedPrice: '',
+        selectedKm: '',
+        selectedEngine: '',
+        selectedHorsepower: '',
       };
-      this.onFilter(filters);
     },
-  },
-};
+    methods: {
+      applyFilters() {
+        const filters = {
+          search: this.searchQuery,
+          condition: this.selectedCondition,
+          price: this.selectedPrice,
+          km: this.selectedKm,
+          engine: this.selectedEngine,
+          horsepower: this.selectedHorsepower,
+        };
+        this.onFilter(filters);
+      },
+    },
+  };
 </script>
 
 <template>
@@ -55,12 +52,13 @@ export default {
               placeholder="Cerca per marca o modello"
             />
           </div>
-          
+
           <div class="form-group">
-            <label for="year-filter">Anno:</label>
-            <select id="year-filter" class="form-control" v-model="selectedYear">
-              <option value="">Tutti gli anni</option>
-              <option v-for="year in years" :key="year" :value="year">{{ year }}</option>
+            <label for="condition-filter">Condizione:</label>
+            <select id="condition-filter" class="form-control" v-model="selectedCondition">
+              <option value="">Tutte le condizioni</option>
+              <option value="new">Nuova</option>
+              <option value="used">Usata</option>
             </select>
           </div>
 
@@ -114,19 +112,20 @@ export default {
   </div>
 </template>
 
+
 <style lang="scss" scoped>
-.search-bar {
-  background-color: rgb(139, 128, 106);
-  border-radius: 10px;
-  padding: 20px;
-  color: white;
-}
+  .search-bar {
+    background-color: rgb(139, 128, 106);
+    border-radius: 10px;
+    padding: 20px;
+    color: white;
+  }
 
-.form-group {
-  min-width: 150px;
-}
+  .form-group {
+    min-width: 150px;
+  }
 
-.f-btn{
-  background-color: #f8f9faa9;
-}
+  .f-btn {
+    background-color: #f8f9faa9;
+  }
 </style>
