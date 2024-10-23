@@ -88,11 +88,11 @@ export default {
 
             if (index > -1) {
                 this.selectedOptionals.splice(index, 1);
-                this.showNotification(`${optional.name} rimosso dal carrello.`);
+                this.showNotification(`${optional.name} è stato rimosso.`);
 
             } else {
                 this.selectedOptionals.push(optional);
-                this.showNotification(`${optional.name} aggiunto al carrello.`);
+                this.showNotification(`${optional.name} è stato aggiunto.`);
             }
         },
         
@@ -110,7 +110,6 @@ export default {
 };
 </script>
 
-
 <template>
     <!-- MESSAGGIO DI POP-UP PER L'AGGIUNTA O LA RIMOZIONE DEGLI OPTIONAL NEL CARRELLO -->
     <div v-if="notification.visible" class="notification">
@@ -122,18 +121,15 @@ export default {
         <div class="row">
 
             <!-- NOME E MODELLO DELL'AUTO -->
-            <div class="col-12">
-                <div class="car-header d-flex align-items-center justify-content-between bg-dark text-warning p-4">
-                    <h1>{{ car.brand.name }} {{ car.model }}</h1>
-                    
-                    <!-- BOTTONE PER TORNARE ALLA LISTA DELLE AUTO -->
-                    <a href="" class="btn btn-warning">Torna indietro</a>
+            <div class="col-10">
+                <div class="car-header mt-4 pt-1">
+                    <h1 class="fw-bold">{{ car.brand.name }} {{ car.model }}</h1>
                 </div>
             </div>
         </div>
 
         <!-- INIZIO INFORMAZIONI SULL'AUTO -->
-        <div class="row mt-4">
+        <div class="row mt-1">
             
             <!-- IMMAGINE DELL'AUTO-->
             <div class="col-10">
@@ -143,7 +139,9 @@ export default {
             <!-- CARDS DEI DETTAGLI DELL'AUTO -->
             <div class="col-2">
                 <div class="row gy-2">
-                    
+
+                    <h3>Dettagli</h3>
+
                     <!-- USATA O NUOVA -->
                     <div class="col-12">
 
@@ -253,15 +251,52 @@ export default {
                         </div>
 
                     </div>
-                    
+                    <div class="ps-5 d-flex justify-content-center mt-5 ">
+                        <div class="mb-3 me-3">
+                            <button class="btn btn-yellow">Compra Ora</button>
+                        </div>
+                        <div class="mb-3 me-3">
+                            <button class="btn text-decoration-underline">Contattaci</button>
+                        </div>
+                    </div>
                 </div>
+                
             </div>
 
         </div>
         <!-- FINE INFORMAZIONI SULL'AUTO -->
         <hr>
+        
+         <!-- MOSTRO LA SOMMA FINALE -->
+         <div class="row mt-4">
+            <div class="col-12">
+                <div class="card-car-info h-100 mb-1">
+                    <div class="col-8">
+                        <h3>{{ selectedOptionals.length > 0 ? '' : 'Nessun Optional Selezionato' }}</h3>
+                    <div class="d-flex flex-wrap justify-content-start">
+                    <div class="optional-badge ps-1" v-for="optional in selectedOptionals" :key="optional.id">
+                        {{ optional.name }}
+                                <button class="btn-close me-4 pt-3" @click="toggleOptional(optional)"></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-4">
+                        <div class="card-body d-flex justify-content-end align-items-center">
+                            
+                            <div class="ms-2 me-4">
+                                <h3>Prezzo Totale</h3>
+                                <strong class="fs-4">€ {{ formatPrice(totalPrice) }}</strong>
+                            </div>
+                           
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- INIZIO SEZIONE OPTIONALS -->
-        <div class="row mt-4">
+        <div class="row mt-4 mb-5">
 
             <!-- SOTTOTITOLO -->
             <div class="col-12">
@@ -308,23 +343,10 @@ export default {
         </div>
         <!-- FINE CARDS OPTIONAL -->
 
-        <!-- MOSTRO LA SOMMA FINALE -->
-        <div class="row mt-4">
-            <div class="col-12">
-                
-                <div class="card-car-info h-100">
-                    <div class="card-body text-center">
-                        <h3>Prezzo Totale</h3>
-                        <div><strong>€ {{ formatPrice(totalPrice) }}</strong></div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
     </div>
   </template>
   
-  <style lang="scss">
+  <style lang="scss" scoped>
 
     // IMMAGINE AUTO
     .show-img {
@@ -342,11 +364,12 @@ export default {
         border: 1px solid #ddd;
         border-radius: 8px;
         text-align: center;
-      
+        
         i {
           font-size: 2rem;
         }
     }
+    
 
     // CARDS OPTIONAL
     .card-car {
@@ -356,7 +379,8 @@ export default {
         background-color: #ffffff98;
         border-radius: 2px;
         box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12); 
-        transition: box-shadow .25s; 
+        transition: box-shadow .25s;
+        cursor: pointer;
     }
     
     // EFFETTO HOVER CARD OPTIONAL
@@ -388,6 +412,21 @@ export default {
     // EFFETTO CARD OPTIONAL SELEZZIONATA
     .card-car.selected {
         border: 2px solid #f39c12;
+    }
+
+    .btn-yellow {
+        background-color: #12f35d;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    
+        &:hover {
+            background-color: #18d100;
+            color: white;
+        }
     }
 
     // STILE POP-UP

@@ -2,14 +2,14 @@
     import CarsCarusel from '../partials/CarsCarusel.vue';
     import Info from '../partials/Info.vue';
     import Carusel from '../partials/Carusel.vue';
-    import Footer from '../layouts/Footer.vue';
+  
 
     export default {
         components: {
             CarsCarusel,
             Info,
             Carusel,
-            Footer,
+
         },
     };
 </script>
@@ -28,7 +28,7 @@
         <Carusel/>
         <CarsCarusel/>
     </div>
-    <Footer/>
+
 </template>
 
 
