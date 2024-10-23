@@ -42,7 +42,7 @@ export default {
             </div>
             <div class="col-4">
                 <div class="my-5">
-                   <h2>{{ car.brand.name }}</h2>
+                    <h2>{{ car.brand.name }}</h2>
                 </div>
             </div>
         </div>
