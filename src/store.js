@@ -9,7 +9,7 @@ export const store = reactive({
         },
         {
             name: 'list_car',
-            label: 'FIND YOUR CAR',
+            label: 'COMPRA AUTO',
         },
     ]
 });
