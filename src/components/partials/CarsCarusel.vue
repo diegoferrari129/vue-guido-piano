@@ -100,6 +100,7 @@ export default {
 
     .car-card {
         flex: 0 0 auto;
+        width: 300px;
     }
 
     .scroll-btn {
